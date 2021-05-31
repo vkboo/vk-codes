@@ -1,0 +1,5 @@
+{
+    "port": "8888",
+    "routes": "./mock/routes.json",
+    "middlewares": ["./mock/middle.js"]
+}

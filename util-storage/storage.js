@@ -1,11 +1,12 @@
 const MAX_MEMORTY_VALUE_LENGTH = 300;
 
 /* eslint-disable */
-const __PRODUCT__ = 'default'; // 默认值
+const __NAMESPACE__ = 'default'; // 默认值
 let _store = window.localStorage;
 
-let _prefix = `__ta/${__PRODUCT__}_`;
+let _prefix = `__ta/${__NAMESPACE__}_`;
 const _cache = {};
+window._cache = _cache;
 let storage;
 
 try {
@@ -20,24 +21,29 @@ try {
 if (_store) {
   storage = {
     // 同时更新不同的 Product 下的 storage
-    sync(products, fn) {
+    map(products, fn) {
       const lastPrefix = _prefix;
       products.forEach(product => {
         _prefix = `__ta/${product}_`;
-        fn();
+        fn(product, {
+          set: this.set,
+          get: this.get,
+          has: this.has,
+          del: this.del,
+        });
       });
       _prefix = lastPrefix;
     },
     set(key, val, seconds) {
       const expiredAt = seconds ? Date.now() + seconds * 1000 : 0;
       val = JSON.stringify([val, expiredAt]);
-      if (val.length <= MAX_MEMORTY_VALUE_LENGTH) _cache[key] = val;
-      else delete _cache[key];
+      if (val.length <= MAX_MEMORTY_VALUE_LENGTH) _cache[_prefix + key] = val;
+      else delete _cache[_prefix + key];
       _store.setItem(_prefix + key, val);
     },
 
     get(key, defaultValue) {
-      const rawVal = _cache[key] || _store.getItem(_prefix + key);
+      const rawVal = _cache[_prefix + key] || _store.getItem(_prefix + key);
       if (!rawVal) return defaultValue;
 
       try {
@@ -52,27 +58,27 @@ if (_store) {
     },
 
     del(key) {
-      delete _cache[key];
+      delete _cache[_prefix + key];
       _store.removeItem(_prefix + key);
     },
 
     has(key) {
-      return key in _cache || !!_store.getItem(_prefix + key);
+      return (_prefix + key) in _cache || !!_store.getItem(_prefix + key);
     },
   };
 } else {
   storage = {
     set(key, val) {
-      _cache[key] = val;
+      _cache[_prefix + key] = val;
     },
     get(key) {
-      return _cache[key];
+      return _cache[_prefix + key];
     },
     del(key) {
-      delete _cache[key];
+      delete _cache[_prefix + key];
     },
     has(key) {
-      return key in _cache;
+      return (_prefix + key) in _cache;
     },
   };
 }

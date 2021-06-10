@@ -10,6 +10,7 @@
 * React中Context+Hooks实现状态管理: todo
 * Vue功能路由级别的keep-alive实现：todo
 * React实现路由守卫: todo
+* Vue中实例axios的CancelToken防止重复请求: todo
 
 ## util codes类
 * util-storage: localStorage的封装，主要实现方便对象的存取、内存级的缓存和设置过期时间的功能

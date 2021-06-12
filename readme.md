@@ -15,7 +15,8 @@
 ## util codes类
 * util-storage: localStorage的封装，主要实现方便对象的存取、内存级的缓存和设置过期时间的功能
 * vue-wait: Vue项目中loading的解决方案
-
+* vue-prompt: Vue实现纯JS调用UI组件的方案（以Prompt组件为例）: todo
+* react-prompt: Vue实现纯JS调用UI组件的方案（以Prompt组件为例）: todo
 ## 经典代码实现
 * 手写Promise: todo
 * 简易版的Redux实现: todo

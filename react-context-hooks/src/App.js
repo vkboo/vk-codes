@@ -1,11 +1,12 @@
-
-import CommentProvider from './store/CommentProvider'
-import CommentList from './components/CommentList.jsx';
+import Header from './components/Header'
+import Footer from './components/Footer'
+import { StoreProvider } from './store/index.js';
 function App() {
   return (
-    <CommentProvider>
-        <CommentList/>
-    </CommentProvider>
+    <StoreProvider>
+        <Header/>
+        <Footer/>
+    </StoreProvider>
   );
 }
 

@@ -1,13 +1,11 @@
 
-import { DataProvider } from './store';
-import FComponent from './components/FComponent.jsx';
+import CommentProvider from './store/CommentProvider'
+import CommentList from './components/CommentList.jsx';
 function App() {
   return (
-    <DataProvider>
-      <div className="App">
-        <FComponent/>
-      </div>
-    </DataProvider>
+    <CommentProvider>
+        <CommentList/>
+    </CommentProvider>
   );
 }
 

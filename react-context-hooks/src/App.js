@@ -1,8 +1,13 @@
+
+import { DataProvider } from './store';
+import FComponent from './components/FComponent.jsx';
 function App() {
   return (
-    <div className="App">
-      h123
-    </div>
+    <DataProvider>
+      <div className="App">
+        <FComponent/>
+      </div>
+    </DataProvider>
   );
 }
 

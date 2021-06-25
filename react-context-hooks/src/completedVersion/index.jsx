@@ -1,0 +1,1 @@
+export default () => <h1>完整版</h1>

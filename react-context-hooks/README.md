@@ -1,23 +1,9 @@
 # Context API + Hooks 实现数据状态管理
 
-## 数据状态管理的整体API设计
+## 简单版
+### 实现思路
+### 代码参考
 
-```jsx
-
-const state = {
-    name: 'vk',
-    age: 12,
-}
-
-const App = () => {
-    return <DataContext.Provider>
-        <AModule />
-    </DataContext.Provider>
-}
-
-import {useStore, setStore} from 'useMyCustomStore';
-const AModule = () => {
-    return <>
-    </>
-}
-```
+## 完整版(性能优化)
+### 实现思路
+### 代码参考

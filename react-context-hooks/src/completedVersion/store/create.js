@@ -2,7 +2,6 @@ import React, { createContext, useContext, useEffect, useRef, useState, useMemo 
 import { isEqual } from 'lodash';
 import PubSub from './PubSub';
 const creatStore = (useModel) => {
-    const AllContext = createContext({});
     const DepsContext = createContext({});
     return {
         useStore: (deps = m => m) => {
@@ -34,11 +33,9 @@ const creatStore = (useModel) => {
                 containerRef.current.publish();
             })
             return (
-                <AllContext.Provider value={state}>
-                    <DepsContext.Provider value={containerRef.current}>
-                        {children}
-                    </DepsContext.Provider>
-                </AllContext.Provider>
+                <DepsContext.Provider value={containerRef.current}>
+                    {children}
+                </DepsContext.Provider>
             )
         }
     }

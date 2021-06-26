@@ -44,5 +44,9 @@ const Count = () => {
 
 ## 完整版(性能优化)
 ### 实现思路
+1. 首先组件肯定不能直接使用`useContext`了，不然Context一更新，所有的依赖到相关Context的组件都会更新
+2. 自定义`Context.Provider`，`Context.Provider`包裹外层，value中放入的是`PubSub`的实例，实例的`state`属性放入了当前的数据
+3. 所以需要自定义一个hook`useStore`用来获取组件需要依赖数据，这个hook的数据源依然来自`useContext`,这里还维护了一个局部的`useState`，`state`的初始值就是`Context.Provider` `value`的`state`的值
+4. 组件在改动数据的时候，`Context.Provider`组件会进行更新的操作，引用对应的`useModel`的数据变化了，然后触发了`PubSub`实例的`publish`，在`useStore`中的`subscription`函数执行，对依赖数据进行深比较后，决定是否`setState`，只有真正执行了`setState`的函数关联的组件，才回重绘执行。
 
-### 代码参考
+通过以上的4点，就做到了局部的更新

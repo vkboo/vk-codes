@@ -6,11 +6,11 @@
 ## 工程模板类
 * React移动端开发：todo（权限管理）
 * React PC端开发：todo (权限管理)
-* Vue移动端开发: todo
+* Vue移动端开发 todo
 * React中Context+Hooks实现状态管理✅
-* Vue功能路由级别的keep-alive实现：todo
-* React实现路由守卫: todo
-* Vue中实例axios的CancelToken防止重复请求: todo
+* Vue功能路由级别的keep-alive实现 todo
+* React实现路由守卫 todo
+* Vue中实例axios的CancelToken防止重复请求 todo
 
 ## util codes类
 * util-storage: localStorage的封装，主要实现方便对象的存取、内存级的缓存和设置过期时间的功能✅
@@ -18,8 +18,9 @@
 * vue-prompt: Vue实现纯JS调用UI组件的方案（以Prompt组件为例）✅
 * react-prompt: Vue实现纯JS调用UI组件的方案（以Prompt组件为例）✅
 ## 经典代码实现
-* 手写Promise: todo
-* 简易版的Redux实现: todo
-* JavaScript实现单链表: todo
-* 手写实现`new`关键字: todo
+* 手写Promise todo
+* 简易版的Redux实现 todo
+* JavaScript实现单链表 todo
+* 手写实现`new`关键字 todo
 * 手写实现`instance`关键字✅
+* 手写实现`Object.is`方法 todo

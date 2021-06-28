@@ -1,1 +1,2 @@
-import './instanceOf.js';
+// import './instanceOf.js';
+import './Object.is.js';

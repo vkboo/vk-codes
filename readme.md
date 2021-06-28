@@ -22,3 +22,4 @@
 * 简易版的Redux实现: todo
 * JavaScript实现单链表: todo
 * 手写实现`new`关键字: todo
+* 手写实现`instance`关键字✅

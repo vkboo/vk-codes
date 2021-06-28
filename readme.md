@@ -23,4 +23,4 @@
 * JavaScript实现单链表 todo
 * 手写实现`new`关键字 todo
 * 手写实现`instance`关键字✅
-* 手写实现`Object.is`方法 todo
+* 手写实现`Object.is`方法 ✅

@@ -6,15 +6,29 @@
 // import './Array.prototype.pop.js';
 // import './Array.prototype.filter.js';
 // import './Array.prototype.splice.js';
-import newOperator from './new.js';
+// import newOperator from './new.js';
+import './Function.prototype.bind.js';
 
-
-function Person() {
-    this.name = '123'
+var obj = {
+    name: 'vkb',
 }
 
-Person.prototype.sayName = function () {
-    console.log(this.name);
+function sayName (a, b) {
+    // console.log(this.name, a, b)
 }
-var p = newOperator(Person)
-console.log(p)
+
+var _sayName = sayName.myBind(obj, 'a', 'b');
+
+_sayName();
+
+
+var obj = {
+    name: 'vkb'
+}
+function Person(name) {
+    console.log(this)
+    this.name = name;
+}
+
+var BPerson = Person.myBind(obj);
+var person = new BPerson('vkk');

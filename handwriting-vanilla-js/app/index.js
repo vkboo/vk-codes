@@ -1,13 +1,15 @@
 // import './instanceOf.js';
 // import './Object.is.js';
-import './Array.prototype.map.js';
+// import './Array.prototype.map.js';
+import './Array.prototype.reduce.js';
 
-const ary = [1,2,3].myMap((e,i,arr) => {
-    console.log({
-        e,
-        i,
-        arr,
-    })
-    return e + i;
+
+// var arr3 = [1,2,3].myReduce((state, current) => {
+//     state.push(current * 2);
+//     return state;
+// }, []);
+
+var arr3 = [1,2,3].myReduce((state, current) => {
+    return state + current;
 });
-console.log(ary); // 1,3, 5
+console.log(arr3); 

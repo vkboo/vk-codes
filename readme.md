@@ -25,3 +25,4 @@
 * 手写实现`instance`关键字✅
 * 手写实现`Object.is`方法 ✅
 * 手写实现`Array.prototype.map`方法 ✅
+* 手写实现`Array.prototype.reduce`方法 ✅

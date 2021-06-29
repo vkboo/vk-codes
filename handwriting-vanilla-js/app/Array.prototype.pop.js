@@ -1,4 +1,4 @@
-Array.prototype.pop = function () {
+Array.prototype.myPop = function () {
     let O = Object(this);
     let len = this.length >>> 0;
     if (len === 0) {

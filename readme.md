@@ -31,3 +31,5 @@
 * 手写实现`Array.prototype.filter`方法 ✅
 * 手写实现`Array.prototype.splice`方法 ✅
 * 手写实现`Function.prototype.bind`方法✅
+* 手写实现`Function.prototype.call`方法✅
+* 手写实现`Function.prototype.apply`方法✅

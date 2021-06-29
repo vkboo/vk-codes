@@ -8,6 +8,8 @@
 // import './Array.prototype.splice.js';
 // import newOperator from './new.js';
 import './Function.prototype.bind.js';
+import './Function.prototype.call.js';
+import './Function.prototype.apply.js';
 
 var obj = {
     name: 'vkb',

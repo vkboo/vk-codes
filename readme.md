@@ -29,3 +29,4 @@
 * 手写实现`Array.prototype.push`方法 ✅
 * 手写实现`Array.prototype.pop`方法 ✅
 * 手写实现`Array.prototype.filter`方法 ✅
+* 手写实现`Array.prototype.splice`方法 ✅

@@ -2,7 +2,8 @@
 // import './Object.is.js';
 // import './Array.prototype.map.js';
 // import './Array.prototype.reduce.js';
-import './Array.prototype.push.js';
+// import './Array.prototype.push.js';
+import './Array.prototype.pop.js';
 
 
 // var arr3 = [1,2,3].myReduce((state, current) => {
@@ -15,5 +16,5 @@ import './Array.prototype.push.js';
 // });
 
 var a = [1,2];
-a.myPush(3);
+console.log(a.pop());
 console.log(a);

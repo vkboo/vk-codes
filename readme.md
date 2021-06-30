@@ -20,7 +20,7 @@
 * deep-clone: JS中（引用类型）数据的深拷贝✅
 
 ## 经典代码实现
-* 手写`Promise` todo
+* 手写`Promise` ✅
 * 简易版的`Redux`实现 todo
 * JavaScript实现单链表 todo
 * handwriting-vanilla-js: 手写实现`new`关键字 ✅

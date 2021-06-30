@@ -14,21 +14,23 @@ import MyPromise from './Promise.js';
 function foo(param) {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
-            reject(param)
-        }, 200)
+            resolve(param)
+        }, 600)
+    })
+}
+
+function bar (param) {
+    return new MyPromise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(param * 2);
+        }, 400)
     })
 }
 
 
-foo(1)
-    .then(res => {
-        // res = 1
-        console.log('第一次', res)
-        return foo(res * 2)
-    })
-    .catch(err => {
-        console.warn('err', err)
-    })
-    .finally(xx => {
-        console.log('ff',xx)
-    })
+MyPromise.race([
+    foo(1),
+    bar(1)
+]).then(res => {
+    console.log(res)
+})

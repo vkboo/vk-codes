@@ -1,4 +1,4 @@
-// import './instanceOf.js';
+// / import './instanceOf.js';
 // import './Object.is.js';
 // import './Array.prototype.map.js';
 // import './Array.prototype.reduce.js';
@@ -7,30 +7,28 @@
 // import './Array.prototype.filter.js';
 // import './Array.prototype.splice.js';
 // import newOperator from './new.js';
-import './Function.prototype.bind.js';
-import './Function.prototype.call.js';
-import './Function.prototype.apply.js';
-
-var obj = {
-    name: 'vkb',
+// import './Function.prototype.bind.js';
+// import './Function.prototype.call.js';
+// import './Function.prototype.apply.js';
+import MyPromise from './Promise.js';
+function foo(param) {
+    return new MyPromise((resolve, reject) => {
+        setTimeout(() => {
+            reject(param)
+        }, 200)
+    })
 }
 
-function sayName (a, b) {
-    // console.log(this.name, a, b)
-}
 
-var _sayName = sayName.myBind(obj, 'a', 'b');
-
-_sayName();
-
-
-var obj = {
-    name: 'vkb'
-}
-function Person(name) {
-    console.log(this)
-    this.name = name;
-}
-
-var BPerson = Person.myBind(obj);
-var person = new BPerson('vkk');
+foo(1)
+    .then(res => {
+        // res = 1
+        console.log('第一次', res)
+        return foo(res * 2)
+    })
+    .catch(err => {
+        console.warn('err', err)
+    })
+    .finally(xx => {
+        console.log('ff',xx)
+    })

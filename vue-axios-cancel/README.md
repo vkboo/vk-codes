@@ -1,29 +1,7 @@
-# vue-axios-cancel
+# Vue+axios实现拦截重复请求
 
-## Project setup
-```
-yarn install
-```
+## 拦截两个接口地址和请求数据完全相同的接口
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+## tab切换的场景：接口地址相同，但是请求数据不同的重复接口的拦截
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 路由切换：上一个路由正在pendding的接口需要全部取消

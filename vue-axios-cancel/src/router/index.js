@@ -7,14 +7,16 @@ import * as reqManage from '@/utils/requestCancelManage.js';
 
 const router = new Router({
     routes: [
-        { path: '/', component: Index },
-        { path: '/about', component: About },
-        { path: '*', component: NotFound }
+        { path: '/', component: Index, meta: { clearPending: true } },
+        { path: '/about', component: About, meta: { clearPending: true } },
+        { path: '*', component: NotFound, meta: { clearPending: true } }
     ]
 });
 
 router.beforeEach((to, from, next) => {
-    reqManage.clearPending();
+    if (to.meta.clearPending) {
+        reqManage.clearPending();
+    }
     next();
 });
 

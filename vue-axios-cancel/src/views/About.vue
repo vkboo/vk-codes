@@ -68,7 +68,9 @@ export default {
       this.init1('B');
     },
     async init1 (type = 'A') {
-      const list = await this.reqList({type});
+      const list = await this.reqList({type}, {
+        cancelPrint: 'tab-list-req',
+      });
       this.list1 = list;
     },
     async init2 () {
@@ -79,10 +81,11 @@ export default {
       const list = await this.reqList({type: 3});
       this.list3 = list;
     },
-    async reqList (params) {
+    async reqList (params, rest = {}) {
       const res = await axios({
         url: 'https://jsonplaceholder.typicode.com/comments',
         params,
+        ...rest,
       });
       const list = res.data;
       return list.slice(0, 20);

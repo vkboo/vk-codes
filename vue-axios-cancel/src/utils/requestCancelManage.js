@@ -9,12 +9,15 @@ const pendingMap = new Map();
  * @param {Object} config 
  */
 export const addPending = (config) => {
-    const url = [
-        config.method,
-        config.url,
-        qs.stringify(config.params),
-        qs.stringify(config.data)
-    ].join('&');
+    // cancelPrint,用自定义的标识来确定重复请求的标识，默认采用method url data param自动标识
+    const url = config.cancelPrint
+        ? config.cancelPrint
+        : [
+            config.method,
+            config.url,
+            qs.stringify(config.params),
+            qs.stringify(config.data)
+        ].join('&');
     config.cancelToken = config.cancelToken || new axios.CancelToken(cancel => {
         if (!pendingMap.has(url)) { // 如果 pendingMap 中不存在当前请求，则添加进去
             pendingMap.set(url, cancel);
@@ -26,12 +29,14 @@ export const addPending = (config) => {
  * @param {Object} config 
  */
 export const removePending = (config) => {
-    const url = [
-        config.method,
-        config.url,
-        qs.stringify(config.params),
-        qs.stringify(config.data)
-    ].join('&')
+    const url = config.cancelPrint
+        ? config.cancelPrint
+        : [
+            config.method,
+            config.url,
+            qs.stringify(config.params),
+            qs.stringify(config.data)
+        ].join('&');
     if (pendingMap.has(url)) { // 如果在 pendingMap 中存在当前请求标识，需要取消当前请求，并且移除
         const cancel = pendingMap.get(url);
         cancel(url);

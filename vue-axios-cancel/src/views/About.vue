@@ -2,7 +2,17 @@
   <div>
       <h1>这里是About</h1>
       <fieldset>
-        <legend>列表1</legend>
+        <legend>列表1(切换tab,接口url相同，但是params不同的情况)</legend>
+        <button 
+          :class="{on: activeType === 'A'}" 
+          @click="onClickA">
+          TabA
+        </button>
+        <button 
+          :class="{on: activeType === 'B'}" 
+          @click="onClickB">
+          TabB
+        </button>
         <ul>
           <li v-for="item of list1"
           :key="item.id">
@@ -37,6 +47,7 @@ export default {
   name: 'Index',
   data () {
     return {
+      activeType: 'A',
       list1: [],
       list2: [],
       list3: [],
@@ -48,8 +59,16 @@ export default {
     this.init3();
   },
   methods: {
-    async init1 () {
-      const list = await this.reqList({type: 1});
+    onClickA () {
+      this.activeType = 'A';
+      this.init1('A');
+    },
+    onClickB () {
+      this.activeType = 'B';
+      this.init1('B');
+    },
+    async init1 (type = 'A') {
+      const list = await this.reqList({type});
       this.list1 = list;
     },
     async init2 () {
@@ -71,3 +90,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.on {
+  background: #999;
+  color: #FFF;
+  pointer-events: none;
+}
+</style>

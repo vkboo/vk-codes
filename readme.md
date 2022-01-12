@@ -11,7 +11,7 @@
 * Vue功能路由级别的keep-alive实现 todo
 * React实现路由守卫 todo
 * Vue中实例axios的CancelToken防止重复请求 todo
-* React(tsx)封装一个`React.memo`+`React.forwardRef`+`useImperativeHandle`的组件
+* React(tsx)封装一个`React.memo`+`React.forwardRef`+`useImperativeHandle`的组件✅
 
 ## util codes类
 * util-storage: localStorage的封装，主要实现方便对象的存取、内存级的缓存和设置过期时间的功能✅
